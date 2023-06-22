@@ -8,14 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var isPresented: Bool = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            LinearGradient(gradient: Gradient(colors: [.mint, .blue]), startPoint: .top, endPoint: .bottom).ignoresSafeArea()
+            VStack {
+                Spacer()
+                Button(action: {
+                    buttonTapped()
+                }, label: {
+                    Text("Get started")
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                })
+                .buttonStyle(GetStartedButtonStyle())
+                .sheet(isPresented: $isPresented, content: {
+                    ModalView()
+                })
+            }.padding()
         }
-        .padding()
+    }
+    
+    private func buttonTapped() {
+        isPresented = true
     }
 }
 
