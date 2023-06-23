@@ -10,7 +10,9 @@ import PhoneNumberKit
 
 struct VerifyCodeView: View {
     @Binding var phoneNumber: String
+    var dismiss: DismissAction?
     private let phoneNumberKit = PhoneNumberKit()
+    var onLogin: (() -> Void)?
     
     var body: some View {
         let number = try? phoneNumberKit.parse(phoneNumber)
@@ -29,15 +31,20 @@ struct VerifyCodeView: View {
                 VStack {
                     Text("Verification")
                         .font(.system(size: 40, weight: .bold))
+                        .foregroundStyle(.white)
                     Text("Enter code sent to \(Text(formatted).fontWeight(.bold))")
+                        .foregroundStyle(.white)
                 }
                 Spacer()
                 CodeView()
                 Spacer()
-                Button(action: {}, label: {
+                Button {
+                    dismiss?()
+                    onLogin?()
+                } label: {
                     Text("Submit")
                         .frame(minWidth: 0, maxWidth: .infinity)
-                })
+                }
                 .buttonStyle(GetStartedButtonStyle())
             }.padding()
         }

@@ -17,6 +17,7 @@
 		8D9E07322A42BDFD007796F2 /* PhoneInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9E07312A42BDFD007796F2 /* PhoneInputView.swift */; };
 		8DCE553E2A43DC3700941F27 /* VerifyCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCE553D2A43DC3700941F27 /* VerifyCodeView.swift */; };
 		8DCE55412A43DEE300941F27 /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8DCE55402A43DEE300941F27 /* PhoneNumberKit */; };
+		8DF847422A44A7430039402E /* LayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF847412A44A7430039402E /* LayoutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		8D9E072F2A42ACD1007796F2 /* PhoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneView.swift; sourceTree = "<group>"; };
 		8D9E07312A42BDFD007796F2 /* PhoneInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneInputView.swift; sourceTree = "<group>"; };
 		8DCE553D2A43DC3700941F27 /* VerifyCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyCodeView.swift; sourceTree = "<group>"; };
+		8DF847412A44A7430039402E /* LayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				8D9E07312A42BDFD007796F2 /* PhoneInputView.swift */,
 				8DCE553D2A43DC3700941F27 /* VerifyCodeView.swift */,
 				8D9E072B2A42A8CC007796F2 /* GetStartedButton.swift */,
+				8DF847412A44A7430039402E /* LayoutView.swift */,
 				8D44A2092A422D61000B5D89 /* Assets.xcassets */,
 				8D44A20B2A422D61000B5D89 /* Preview Content */,
 			);
@@ -164,6 +167,7 @@
 				8D44A2082A422D60000B5D89 /* ContentView.swift in Sources */,
 				8D9E07302A42ACD1007796F2 /* PhoneView.swift in Sources */,
 				8D9E072C2A42A8CC007796F2 /* GetStartedButton.swift in Sources */,
+				8DF847422A44A7430039402E /* LayoutView.swift in Sources */,
 				8D9E072E2A42ABF8007796F2 /* ModalView.swift in Sources */,
 				8D44A2062A422D60000B5D89 /* LoginFlow1App.swift in Sources */,
 				8DCE553E2A43DC3700941F27 /* VerifyCodeView.swift in Sources */,

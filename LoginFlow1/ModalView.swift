@@ -12,6 +12,8 @@ struct ModalView: View {
     @State private var phoneNumber: String = ""
     @State private var showCodeView: Bool = false
     
+    var onLogin: (() -> Void)?
+    
     var body: some View {
         NavigationStack {
             ZStack(alignment: .topTrailing) {
@@ -41,7 +43,11 @@ struct ModalView: View {
                 }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
             }
             .navigationDestination(isPresented: $showCodeView, destination: {
-                VerifyCodeView(phoneNumber: $phoneNumber)
+                VerifyCodeView(
+                    phoneNumber: $phoneNumber,
+                    dismiss: dismiss,
+                    onLogin: onLogin
+                )
                     .toolbarRole(.editor)
             })
         }
