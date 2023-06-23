@@ -14,7 +14,7 @@ struct GetStartedButton: View {
     var body: some View {
         VStack {
             Button(text, action: action)
-                .buttonStyle(GetStartedButtonStyle())
+                .buttonStyle(.borderedProminent)
         }
     }
 }
@@ -28,16 +28,12 @@ struct GetStartedButtonStyle: ButtonStyle {
             .background(Material.thick)
             .foregroundColor(configuration.isPressed ? .secondary : .primary)
             .cornerRadius(10)
-            .shadow(radius: configuration.isPressed ? 2.0 : 4.0)
-            .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
-            .animation(.spring(Spring(duration: 0.2, bounce: 0.5)), value: configuration.isPressed)
     }
 }
 
-
 #Preview {
-    ZStack {
-        LinearGradient(colors: [.yellow, .blue], startPoint: .top, endPoint: .bottom)
+    VStack {
         GetStartedButton(text: "Get started", action: {})
-    }.ignoresSafeArea()
+            .frame(minWidth: 0, maxWidth: .infinity)
+    }.padding()
 }

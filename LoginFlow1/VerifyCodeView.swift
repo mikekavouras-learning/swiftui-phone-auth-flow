@@ -9,10 +9,13 @@ import SwiftUI
 import PhoneNumberKit
 
 struct VerifyCodeView: View {
-    @Binding var phoneNumber: String
     var dismiss: DismissAction?
     private let phoneNumberKit = PhoneNumberKit()
     var onLogin: (() -> Void)?
+    
+    @Binding var phoneNumber: String
+    @State private var code: String = ""
+    @State private var isAuthenticating: Bool = false
     
     var body: some View {
         let number = try? phoneNumberKit.parse(phoneNumber)
@@ -23,40 +26,45 @@ struct VerifyCodeView: View {
         }
         
         ZStack {
-            LinearGradient(colors: [.purple, .indigo], startPoint: .top, endPoint: .bottom)
-                .ignoresSafeArea()
-            
             VStack {
                 Spacer()
                 VStack {
                     Text("Verification")
                         .font(.system(size: 40, weight: .bold))
-                        .foregroundStyle(.white)
                     Text("Enter code sent to \(Text(formatted).fontWeight(.bold))")
-                        .foregroundStyle(.white)
                 }
                 Spacer()
-                CodeView()
+                if !isAuthenticating {
+                    CodeView(code: $code)
+                } else {
+                    ProgressView()
+                }
                 Spacer()
                 Button {
-                    dismiss?()
-                    onLogin?()
+                    withAnimation {
+                        isAuthenticating.toggle()
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                        onLogin?()
+                    }
                 } label: {
                     Text("Submit")
-                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 44.0)
                 }
-                .buttonStyle(GetStartedButtonStyle())
+                .buttonStyle(.borderedProminent)
+                .disabled(isAuthenticating)
             }.padding()
         }
+        .toolbarRole(.editor)
     }
 }
 
 struct CodeView: View {
-    @State var text: String = ""
+    @Binding var code: String
     @FocusState var isFocused: Bool
     
     var body: some View {
-        TextField("code", text: $text)
+        TextField("", text: $code)
             .keyboardType(.numberPad)
             .multilineTextAlignment(.center)
             .font(.system(size: 30))
@@ -69,6 +77,8 @@ struct CodeView: View {
 
 #Preview {
     NavigationStack {
-        VerifyCodeView(phoneNumber: .constant("7703619464"))
+        VerifyCodeView(
+            phoneNumber: .constant("7703619464")
+        )
     }
 }
