@@ -35,7 +35,8 @@ struct VerifyCodeView: View {
                 }
                 Spacer()
                 if !isAuthenticating {
-                    CodeView(code: $code)
+//                    CodeView(code: $code)
+                    OTPTextField(code: $code)
                 } else {
                     ProgressView()
                 }
@@ -62,7 +63,7 @@ struct VerifyCodeView: View {
 struct CodeView: View {
     @Binding var code: String
     @FocusState var isFocused: Bool
-    
+
     var body: some View {
         TextField("", text: $code)
             .keyboardType(.numberPad)

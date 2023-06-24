@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58EDB45F2A46A8FC00FF453B /* OTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EDB45E2A46A8FC00FF453B /* OTPTextField.swift */; };
 		8D362A8D2A46117300CA5780 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D362A8C2A46117300CA5780 /* IntroView.swift */; };
 		8D362A8F2A46117700CA5780 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D362A8E2A46117700CA5780 /* AppView.swift */; };
 		8D362A912A46154E00CA5780 /* PhoneViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D362A902A46154E00CA5780 /* PhoneViewContext.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		58EDB45E2A46A8FC00FF453B /* OTPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPTextField.swift; sourceTree = "<group>"; };
 		8D362A8C2A46117300CA5780 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		8D362A8E2A46117700CA5780 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		8D362A902A46154E00CA5780 /* PhoneViewContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewContext.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				8D9E072B2A42A8CC007796F2 /* GetStartedButton.swift */,
 				8D44A2092A422D61000B5D89 /* Assets.xcassets */,
 				8D44A20B2A422D61000B5D89 /* Preview Content */,
+				58EDB45E2A46A8FC00FF453B /* OTPTextField.swift */,
 			);
 			path = LoginFlow1;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 				8D44A2062A422D60000B5D89 /* LoginFlow1App.swift in Sources */,
 				8DCE553E2A43DC3700941F27 /* VerifyCodeView.swift in Sources */,
 				8D362A912A46154E00CA5780 /* PhoneViewContext.swift in Sources */,
+				58EDB45F2A46A8FC00FF453B /* OTPTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,7 +312,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LoginFlow1/Preview Content\"";
-				DEVELOPMENT_TEAM = A56D86G827;
+				DEVELOPMENT_TEAM = RYXSESZHDG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -337,7 +341,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"LoginFlow1/Preview Content\"";
-				DEVELOPMENT_TEAM = A56D86G827;
+				DEVELOPMENT_TEAM = RYXSESZHDG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
