@@ -28,18 +28,23 @@ struct VerifyCodeView: View {
         ZStack {
             VStack {
                 Spacer()
+
                 VStack {
                     Text("Verification")
                         .font(.system(size: 40, weight: .bold))
                     Text("Enter code sent to \(Text(formatted).fontWeight(.bold))")
                 }
+
                 Spacer()
+
                 if !isAuthenticating {
-                    CodeView(code: $code)
+                    OTPTextField()
                 } else {
                     ProgressView()
                 }
+
                 Spacer()
+
                 Button {
                     withAnimation {
                         isAuthenticating.toggle()
@@ -56,22 +61,6 @@ struct VerifyCodeView: View {
             }.padding()
         }
         .toolbarRole(.editor)
-    }
-}
-
-struct CodeView: View {
-    @Binding var code: String
-    @FocusState var isFocused: Bool
-    
-    var body: some View {
-        TextField("", text: $code)
-            .keyboardType(.numberPad)
-            .multilineTextAlignment(.center)
-            .font(.system(size: 30))
-            .focused($isFocused)
-            .onAppear {
-                isFocused = true
-            }
     }
 }
 
