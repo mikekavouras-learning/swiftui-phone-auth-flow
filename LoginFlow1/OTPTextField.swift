@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct OTPTextField: View {
-    @State var otpText: String = ""
+    @Binding var code: String
     @FocusState private var isKeyboardShowing: Bool
 
     var body: some View {
@@ -19,7 +19,7 @@ struct OTPTextField: View {
                 }
             }
             .background(content: {
-                TextField("", text: $otpText.limit(6))
+                TextField("", text: $code.limit(6))
                     .keyboardType(.numberPad)
                     .textContentType(.oneTimeCode)
                     .frame(width: 1, height: 1)
@@ -42,10 +42,10 @@ struct OTPTextField: View {
     @ViewBuilder
     func OTPTextBox(_ index: Int)->some View{
         ZStack{
-            if otpText.count > index{
-                let startIndex = otpText.startIndex
-                let charIndex = otpText.index(startIndex, offsetBy: index)
-                let charToString = String(otpText[charIndex])
+            if code.count > index{
+                let startIndex = code.startIndex
+                let charIndex = code.index(startIndex, offsetBy: index)
+                let charToString = String(code[charIndex])
                 Text(charToString)
             }else{
                 Text(" ")
@@ -53,7 +53,7 @@ struct OTPTextField: View {
         }
         .frame(width: 45, height: 45)
         .background {
-            let status = (isKeyboardShowing && otpText.count == index)
+            let status = (isKeyboardShowing && code.count == index)
             RoundedRectangle(cornerRadius: 6, style: .continuous)
                 .stroke(status ? Color.primary : Color.gray,lineWidth: status ? 1 : 0.5)
                 .animation(.easeInOut(duration: 0.2), value: isKeyboardShowing)
@@ -84,6 +84,7 @@ extension Binding where Value == String{
 }
 
 
-#Preview {
-    OTPTextField()
-}
+//#Preview {
+//    @State var dummyCode: String = ""
+//    OTPTextField(code: $dummyCode)
+//}

@@ -38,7 +38,8 @@ struct VerifyCodeView: View {
                 Spacer()
 
                 if !isAuthenticating {
-                    OTPTextField()
+//                    CodeView(code: $code)
+                    OTPTextField(code: $code)
                 } else {
                     ProgressView()
                 }
@@ -63,6 +64,22 @@ struct VerifyCodeView: View {
         .toolbarRole(.editor)
     }
 }
+
+//struct CodeView: View {
+//    @Binding var code: String
+//    @FocusState var isFocused: Bool
+//
+//    var body: some View {
+//        TextField("", text: $code)
+//            .keyboardType(.numberPad)
+//            .multilineTextAlignment(.center)
+//            .font(.system(size: 30))
+//            .focused($isFocused)
+//            .onAppear {
+//                isFocused = true
+//            }
+//    }
+//}
 
 #Preview {
     NavigationStack {
